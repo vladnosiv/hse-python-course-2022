@@ -1,5 +1,7 @@
 import numpy as np
+import numbers
 from itertools import chain
+from numpy.lib.mixins import NDArrayOperatorsMixin
 
 
 # Easy Matrix
@@ -60,6 +62,42 @@ class MyMatrix:
         return MyMatrix(result)
 
 
+class StrMatrixMixin:
+    def __str__(self):
+        s = ''
+        for row in self._matrix:
+            s += ' ['
+            for el in row:
+                s += ' ' + str(el)
+            s += ']\n'
+        return '[' + s[1:-1] + ']'
+
+
+class MatrixProperties:
+    @property
+    def matrix(self):
+        return self._matrix
+
+    @matrix.setter
+    def matrix(self, new_matrix):
+        self._matrix = np.asarray(new_matrix)
+
+
+# Medium Matrix
+class MediumMatrix(NDArrayOperatorsMixin, StrMatrixMixin, MatrixProperties):
+    def __init__(self, matrix):
+        self._matrix = np.asarray(matrix)
+
+    _HANDLED_TYPES = (np.ndarray, numbers.Number)
+
+    def __array_ufunc__(self, ufunc, method, *inputs, **kwargs):
+        inputs = tuple(x._matrix if isinstance(x, MediumMatrix) else x
+                       for x in inputs)
+        result = getattr(ufunc, method)(*inputs, **kwargs)
+        return type(self)(result)
+
+
+
 def easy_task():
     np.random.seed(0)
 
@@ -74,5 +112,20 @@ def easy_task():
         f.write(str(my_a @ my_b))
 
 
+def medium_task():
+    np.random.seed(0)
+
+    my_a = MediumMatrix(np.random.randint(0, 10, (10, 10)))
+    my_b = MediumMatrix(np.random.randint(0, 10, (10, 10)))
+
+    with open('artifacts/medium/matrix+.txt', 'w') as f:
+        f.write(str(my_a + my_b))
+    with open('artifacts/medium/matrix*.txt', 'w') as f:
+        f.write(str(my_a * my_b))
+    with open('artifacts/medium/matrix@.txt', 'w') as f:
+        f.write(str(my_a @ my_b))
+
+
 if __name__ == '__main__':
     easy_task()
+    medium_task()
