@@ -97,6 +97,26 @@ class MediumMatrix(NDArrayOperatorsMixin, StrMatrixMixin, MatrixProperties):
         return type(self)(result)
 
 
+# Hard Task Mixin
+# Simply XOR all values in matrix
+class HashXorMixin:
+    def __hash__(self):
+        result = 0
+        for x in self:
+            result ^= x
+        return result
+
+
+# Hard Task
+class CachedMatrix(MyMatrix, HashXorMixin):
+    _cached_matmul = dict()
+
+    def __matmul__(self, other):
+        _hash = hash((self, other))
+        if _hash not in self._cached_matmul:
+            self._cached_matmul[_hash] = CachedMatrix(super().__matmul__(other)._matrix)
+        return self._cached_matmul[_hash]
+
 
 def easy_task():
     np.random.seed(0)
@@ -126,6 +146,35 @@ def medium_task():
         f.write(str(my_a @ my_b))
 
 
+def hard_task():
+    A = MyMatrix([
+        [0, 1],
+        [1, 0]
+    ])
+    C = MyMatrix([
+        [1, 1],
+        [0, 0]
+    ])
+    B = D = MyMatrix([
+        [1, 2],
+        [1, 1]
+    ])
+
+    for matrix, name in [(A, 'A'), (B, 'B'), (C, 'C'), (D, 'D')]:
+        with open(f"artifacts/hard/{name}.txt", 'w') as f:
+            f.write(str(matrix))
+
+    with open('artifacts/hard/AB.txt', 'w') as f:
+        f.write(str(A @ B))
+    with open('artifacts/hard/CD.txt', 'w') as f:
+        f.write(str(C @ D))
+
+    with open('artifacts/hard/hash.txt', 'w') as f:
+        f.write(f"AB Hash: {hash(CachedMatrix((A @ B)._matrix))}\n"
+                f"CD Hash: {hash(CachedMatrix((C @ D)._matrix))}\n")
+
+
 if __name__ == '__main__':
     easy_task()
     medium_task()
+    hard_task()
