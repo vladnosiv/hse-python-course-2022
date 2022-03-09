@@ -1,0 +1,7 @@
+Received the message from input: noWar. Time: 2022-03-09 23:41:23.589580
+Message is encoded: abjne. Time: 2022-03-09 23:41:30.925433
+Received the message from input: hardTaskNotHard. Time: 2022-03-09 23:41:34.319911
+Message is encoded: uneqgnfxabguneq. Time: 2022-03-09 23:41:35.929792
+Received the message from input: multiprocessing. Time: 2022-03-09 23:41:47.804595
+Message is encoded: zhygvcebprffvat. Time: 2022-03-09 23:41:50.944396
+Received the message from input: 123. Time: 2022-03-09 23:41:50.944518

@@ -1,0 +1,32 @@
+Start integrate from 0 to 1.5707963267948966, n_jobs = 1, n_iter = 100000000
+End integrate. Result = 1.0000000078541809, time: 18.643332719802856
+Start integrate from 0 to 1.5707963267948966, n_jobs = 2, n_iter = 100000000
+End integrate. Result = 1.000000007853921, time: 10.093445301055908
+Start integrate from 0 to 1.5707963267948966, n_jobs = 3, n_iter = 100000000
+End integrate. Result = 1.0000000078540616, time: 7.692268133163452
+Start integrate from 0 to 1.5707963267948966, n_jobs = 4, n_iter = 100000000
+End integrate. Result = 1.0000000078540932, time: 6.580786228179932
+Start integrate from 0 to 1.5707963267948966, n_jobs = 5, n_iter = 100000000
+End integrate. Result = 1.0000000078539952, time: 6.111956834793091
+Start integrate from 0 to 1.5707963267948966, n_jobs = 6, n_iter = 100000000
+End integrate. Result = 1.0000000078539886, time: 5.911153078079224
+Start integrate from 0 to 1.5707963267948966, n_jobs = 7, n_iter = 100000000
+End integrate. Result = 1.0000000078539049, time: 5.32706093788147
+Start integrate from 0 to 1.5707963267948966, n_jobs = 8, n_iter = 100000000
+End integrate. Result = 1.0000000078540214, time: 5.524828910827637
+Start integrate from 0 to 1.5707963267948966, n_jobs = 9, n_iter = 100000000
+End integrate. Result = 1.0000000078539646, time: 5.529662847518921
+Start integrate from 0 to 1.5707963267948966, n_jobs = 10, n_iter = 100000000
+End integrate. Result = 1.0000000078540154, time: 5.728445053100586
+Start integrate from 0 to 1.5707963267948966, n_jobs = 11, n_iter = 100000000
+End integrate. Result = 1.0000000078539775, time: 6.0152201652526855
+Start integrate from 0 to 1.5707963267948966, n_jobs = 12, n_iter = 100000000
+End integrate. Result = 1.000000007853978, time: 6.25429892539978
+Start integrate from 0 to 1.5707963267948966, n_jobs = 13, n_iter = 100000000
+End integrate. Result = 1.000000007854023, time: 6.06809401512146
+Start integrate from 0 to 1.5707963267948966, n_jobs = 14, n_iter = 100000000
+End integrate. Result = 1.0000000078539832, time: 6.48133111000061
+Start integrate from 0 to 1.5707963267948966, n_jobs = 15, n_iter = 100000000
+End integrate. Result = 1.000000007853968, time: 6.192871809005737
+Start integrate from 0 to 1.5707963267948966, n_jobs = 16, n_iter = 100000000
+End integrate. Result = 1.00000000785399, time: 6.09643816947937
